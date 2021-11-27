@@ -17,8 +17,8 @@ export default function DefaultLayout(props: RouteConfigComponentProps) {
   const Component = props.route?.component;
   console.log("asdasasdzzd");
   return (
-    <Layout className="layout">
-      <Header style={{ backgroundColor: "#FFCC99" }}>
+    <Layout className={style.layout}>
+      <Header style={{ backgroundColor: "#336666" }}>
         <Logo>Here is an altogether different world.</Logo>
       </Header>
       <Content className={style.content}>
