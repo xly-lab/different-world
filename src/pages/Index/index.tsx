@@ -15,11 +15,11 @@ import style from "./index.module.scss";
 const { Title, Paragraph, Link } = Typography;
 
 export default function Index() {
-  const [name, setName] = useState(useSearchParam("name") ?? "陌生人");
+  const [name, setName] = useState(useSearchParam("name") ?? "亲朋好友");
 
   const timerRef: React.MutableRefObject<any> = useRef();
 
-  const strs = useMemo(() => ["欢", "迎", "你", ...name], [name]);
+  const strs = useMemo(() => ["欢", "迎", "您", ...name], [name]);
 
   const [str, setStr] = useState("");
   const [index, setIndex] = useState(0);
@@ -35,7 +35,7 @@ export default function Index() {
   }, [index, strs]);
 
   useEffect(() => {
-    if (name.length > 4) {
+    if (name.length > 5) {
       setName((name) => name.substring(0, 4));
       message.warning("你的名字太长，已自动截断");
     }
@@ -88,7 +88,7 @@ export default function Index() {
             <Title>亲爱的{name}:</Title>
             <div style={{ paddingLeft: 20 }}>
               <Paragraph>
-                我们诚邀请你来参加我们的婚礼，你可以带上你的亲属一起来见证我们幸福时刻
+                我们诚邀请您来参加我们的婚礼，你可以带上你的亲属一起来见证我们幸福时刻
               </Paragraph>
               <Title level={3}>谢黎源 & 廖红</Title>
               <Paragraph>
