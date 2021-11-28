@@ -7,11 +7,10 @@ import SecondSection from "./module/SecondSection";
 const Fullpage = () => (
   <ReactFullpage
     //fullpage options
-    licenseKey={null}
+    licenseKey={"OPEN-SOURCE-GPLV3-LICENSE"}
     scrollingSpeed={1000} /* Options here */
     scrollOverflowReset={true}
     render={(data: any) => {
-      console.log(data);
       return (
         <ReactFullpage.Wrapper>
           <div className="section">

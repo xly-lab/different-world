@@ -1,7 +1,13 @@
 import { CustomerServiceTwoTone } from "@ant-design/icons";
 import { Layout } from "antd";
 import classNames from "classnames";
-import React, { Suspense, useCallback, useRef, useState } from "react";
+import React, {
+  Suspense,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { RouteConfigComponentProps } from "react-router-config";
 import styled from "styled-components";
 import { tw } from "twind";
@@ -36,15 +42,21 @@ export default DefaultLayout;
 
 const MusicIcon = () => {
   const audioRef = useRef();
-  const [rotator, setRotator] = useState("running");
+  const [rotator, setRotator] = useState("paused");
 
   const changeMusicState = useCallback(async () => {
     await setRotator((rotator) =>
       rotator === "paused" ? "running" : "paused"
     );
+    console.log(audioRef);
     if ((audioRef.current as any).paused === true) {
       (audioRef.current as any)?.play?.();
     } else {
+      (audioRef.current as any)?.pause?.();
+    }
+  }, []);
+  useEffect(() => {
+    if ((audioRef.current as any).paused === true) {
       (audioRef.current as any)?.pause?.();
     }
   }, []);
