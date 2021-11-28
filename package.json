@@ -1,6 +1,6 @@
 {
   "name": "different-world",
-  "version": "0.2.3-0",
+  "version": "0.2.3-aphla.0",
   "private": true,
   "dependencies": {
     "@fullpage/react-fullpage": "^0.1.19",
