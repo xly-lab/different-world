@@ -1,4 +1,3 @@
-import { ArrowRightOutlined } from "@ant-design/icons";
 import { Button, Typography } from "antd";
 import classNames from "classnames";
 import React, {
@@ -8,10 +7,10 @@ import React, {
   useRef,
   useState,
 } from "react";
+import { Link as LinkOfRoute } from "react-router-dom";
 import { useSearchParam } from "react-use";
 import { tw } from "twind";
 import style from "./index.module.scss";
-import { Link as LinkOfRoute } from "react-router-dom";
 
 const { Title, Paragraph, Link } = Typography;
 
