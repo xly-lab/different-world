@@ -2,6 +2,9 @@
   font-family:Muyao-Softbrush ;
   src: url('./style/font/Muyao-Softbrush.ttf');
 }
+.ant-btn .anticon{
+  vertical-align: text-bottom;
+}
 p,div,span{
   font-family:Muyao-Softbrush ;
 }
