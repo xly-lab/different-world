@@ -1,4 +1,4 @@
-import { Button, Typography } from "antd";
+import { Button, message, Typography } from "antd";
 import classNames from "classnames";
 import React, {
   useCallback,
@@ -15,7 +15,8 @@ import style from "./index.module.scss";
 const { Title, Paragraph, Link } = Typography;
 
 export default function Index() {
-  const name = useSearchParam("name") ?? "陌生人";
+  const [name, setName] = useState(useSearchParam("name") ?? "陌生人");
+
   const timerRef: React.MutableRefObject<any> = useRef();
 
   const strs = useMemo(() => ["欢", "迎", "你", ...name], [name]);
@@ -34,11 +35,15 @@ export default function Index() {
   }, [index, strs]);
 
   useEffect(() => {
+    if (name.length > 4) {
+      setName((name) => name.substring(0, 4));
+      message.warning("你的名字太长，已自动截断");
+    }
     doTime();
     return () => {
       clearInterval(timerRef.current);
     };
-  }, [doTime]);
+  }, [doTime, name.length]);
 
   return (
     <div className={style.body}>
@@ -61,7 +66,7 @@ export default function Index() {
           </div>
         </div>
       )}
-      {index <= 9 && index > 7 && (
+      {index <= strs.length + 3 && index > strs.length + 1 && (
         <div
           className={classNames(style.content, {
             [style.slideInEllipticTopFwd]: index > strs.length,
@@ -73,7 +78,7 @@ export default function Index() {
           </div>
         </div>
       )}
-      {index > 9 && (
+      {index > strs.length + 3 && (
         <div
           className={classNames(style.content, {
             [style.slideInEllipticTopFwd]: true,
