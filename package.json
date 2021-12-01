@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^12.1.10",
     "@types/jest": "^26.0.15",
     "@types/node": "^12.0.0",
+    "@types/preval.macro": "^3.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@types/react-router-config": "^5.0.3",
@@ -16,6 +17,10 @@
     "@types/styled-components": "^5.1.15",
     "antd": "^4.17.2",
     "classnames": "^2.3.1",
+    "consolev": "^1.1.1",
+    "date-fns": "^2.27.0",
+    "less": "^4.1.2",
+    "preval.macro": "^5.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-config": "^5.1.1",
@@ -32,7 +37,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "style:d": "lessc --js src/style/themes/theme.less > src/style/themes/default.css",
+    "style:o": "lessc --js src/style/themes/official.less > src/style/themes/default.css"
   },
   "eslintConfig": {
     "extends": [

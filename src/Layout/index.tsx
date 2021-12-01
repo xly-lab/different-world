@@ -1,1 +1,8 @@
-export { default as DefaultLayout } from "./DefaultLayout";
+import DefaultLayout from "./DefaultLayout";
+import OfficialLayout from "./OfficialLayout";
+const Layout = {
+  DefaultLayout,
+  OfficialLayout,
+};
+
+export default Layout;

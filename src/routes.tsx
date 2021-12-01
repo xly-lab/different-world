@@ -1,25 +1,31 @@
 import FullPage from "pages/FullPage";
+import Main from "pages/Main";
 import { RouteConfig } from "react-router-config";
-import { DefaultLayout } from "./Layout";
+import Layout from "./Layout";
 import Index from "./pages/Index";
 import Story from "./pages/Story";
 
 let routes: RouteConfig[] = [
   {
     path: "/",
-    component: FullPage,
+    component: Main,
     exact: true,
-    render: DefaultLayout,
+    render: Layout.OfficialLayout,
+  },
+  {
+    path: "/out-index",
+    component: Index,
+    render: Layout.DefaultLayout,
   },
   {
     path: "/story",
     component: Story,
-    render: DefaultLayout,
+    render: Layout.DefaultLayout,
   },
   {
     path: "/full-page",
-    component: Index,
-    render: DefaultLayout,
+    component: FullPage,
+    render: Layout.DefaultLayout,
   },
 ];
 
