@@ -20,7 +20,7 @@ let routes: RouteConfig[] = [
   {
     path: "/story",
     component: Story,
-    render: Layout.DefaultLayout,
+    render: Layout.OfficialLayout,
   },
   {
     path: "/full-page",
