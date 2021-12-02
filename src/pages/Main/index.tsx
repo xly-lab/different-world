@@ -12,8 +12,13 @@ export default function Main() {
         Html 学习记录
       </Divider>
       <Divider orientation="right">Html</Divider>
-      {html.map((item: HtmlForMenu) => (
-        <Sketch detail={item} key={item.value} />
+      {html.htmlMenu.map((item: HtmlForMenu, index: number) => (
+        <>
+          <Sketch detail={item} key={item.value} />
+          {index !== html.htmlMenu.length - 1 && (
+            <Divider orientation="right">Html</Divider>
+          )}
+        </>
       ))}
     </div>
   );

@@ -2,6 +2,7 @@
   overflow: auto;
   .content {
     background-color: #006699c2;
+    min-height: calc(100vh - 64px);
     padding: 10px;
     .menuIcon {
       position: sticky;
