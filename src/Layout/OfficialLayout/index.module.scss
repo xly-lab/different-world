@@ -1,7 +1,11 @@
-.content {
-  background-color: #006699a1;
-  .menuIcon {
-    position: sticky;
-    top: 128px;
+.layout {
+  overflow: auto;
+  .content {
+    background-color: #006699c2;
+    padding: 10px;
+    .menuIcon {
+      position: sticky;
+      top: 128px;
+    }
   }
 }
