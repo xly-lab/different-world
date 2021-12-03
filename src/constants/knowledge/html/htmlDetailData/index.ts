@@ -1,10 +1,10 @@
 // @ts-ignore
+import md from "./H5新特性.md";
 
-// const h5NewFeature = lazy(() => importMDX("./H5新特性.md"));
 const htmlDetailData = [
   {
     value: "h5-new-feature",
-    detail: "",
+    detail: md,
   },
 ];
 
