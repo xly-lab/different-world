@@ -40,7 +40,6 @@ export default function HtmlDetail() {
     const childrenNodes = [...(ref.current as any)?.childNodes]?.filter(
       (item: HTMLElement) => /^[Hh]/.test(item.nodeName)
     );
-    console.log("childrenNodes=====>", childrenNodes);
 
     getTitleMenuData(childrenNodes);
   }, [getTitleMenuData]);
