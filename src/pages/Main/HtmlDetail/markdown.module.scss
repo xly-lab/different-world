@@ -1,3 +1,18 @@
+.detailBody {
+  :global {
+    .ant-tree {
+      height: auto !important;
+      background-color: #99ccff;
+    }
+  }
+  .menuBox {
+    position: fixed;
+    top: 64px;
+    right: 20%;
+    height: auto;
+  }
+}
+
 .markdown {
   :global {
     body {

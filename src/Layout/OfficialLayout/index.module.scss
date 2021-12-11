@@ -1,9 +1,11 @@
 .layout {
   overflow: auto;
   .content {
-    background-color: #006699c2;
+    max-width: auto;
+    background-color: #99ccffc2;
     min-height: calc(100vh - 64px);
     padding: 10px;
+    margin-top: 64px;
     .menuIcon {
       position: sticky;
       top: 128px;

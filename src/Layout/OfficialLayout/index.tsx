@@ -31,7 +31,10 @@ const OfficialLayout = (props: RouteConfigComponentProps) => {
   return (
     <Suspense fallback={<Loading />}>
       <Layout className={style.layout}>
-        <Header className={tw`relative z-10`}>
+        <Header
+          className={tw`sticky z-10 top-0`}
+          style={{ position: "fixed", zIndex: 1, width: "100%" }}
+        >
           <Logo>xly study web</Logo>
         </Header>
         <Button
