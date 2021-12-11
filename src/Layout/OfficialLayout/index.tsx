@@ -1,11 +1,16 @@
-import { Layout } from "antd";
+import { UnorderedListOutlined } from "@ant-design/icons";
+import { Button, Calendar, Divider, Drawer, Layout, Tree } from "antd";
 import classNames from "classnames";
-import React, { Suspense } from "react";
+import Loading from "components/Loading";
+import React, { Suspense, useRef, useState } from "react";
+import { useHistory } from "react-router";
 import { RouteConfigComponentProps } from "react-router-config";
 import styled from "styled-components";
 import { tw } from "twind";
+import constants from "../../constants";
 import style from "./index.module.scss";
 const { Header, Content } = Layout;
+const { DirectoryTree } = Tree;
 
 const Logo = styled.div`
   margin-right: 50px;
@@ -15,21 +20,63 @@ const Logo = styled.div`
 `;
 
 const OfficialLayout = (props: RouteConfigComponentProps) => {
+  const history = useHistory();
+  const sceneRef = useRef<any>();
   const Component = props.route?.component;
+  const [visible, setVisible] = useState(false);
+  const onSelect = (keys: React.Key[], info: any) => {
+    history.push(keys.toString());
+  };
+
   return (
-    <Layout>
-      <Header>
-        <Logo>xly study web</Logo>
-      </Header>
-      <Content
-        className={classNames(style.content, tw`lg:w-4/5 w-full m-auto`)}
-      >
-        <Suspense fallback="loading">
+    <Suspense fallback={<Loading />}>
+      <Layout className={style.layout}>
+        <Header
+          className={tw`sticky z-10 top-0`}
+          style={{ position: "fixed", zIndex: 1, width: "100%" }}
+        >
+          <Logo>xly study web</Logo>
+        </Header>
+        <Button
+          type="primary"
+          className={tw`fixed top-20 lg:visible invisible w-20 text-left`}
+          onClick={() => setVisible(true)}
+        >
+          <UnorderedListOutlined />
+        </Button>
+        <Content
+          className={classNames(style.content, tw`lg:w-1/2 w-full m-auto`)}
+        >
+          <Drawer
+            placement="left"
+            closable={false}
+            onClose={() => setVisible(false)}
+            visible={visible}
+            getContainer={false}
+          >
+            <Calendar fullscreen={false} />
+            <Divider>目录</Divider>
+            <DirectoryTree
+              multiple
+              defaultExpandAll
+              onSelect={onSelect}
+              treeData={constants.layoutData.menuData}
+            />
+          </Drawer>
+          <div
+            id="scene"
+            className="w-full lg:visible invisible"
+            ref={sceneRef as any}
+          ></div>
           {Component && <Component {...props} />}
-        </Suspense>
-      </Content>
-    </Layout>
+        </Content>
+      </Layout>
+    </Suspense>
   );
 };
 
-export default OfficialLayout;
+const OfficialLayoutCoppy = (props: RouteConfigComponentProps) => (
+  <OfficialLayout {...props} />
+);
+
+export default OfficialLayoutCoppy;

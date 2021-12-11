@@ -1,31 +1,24 @@
-import FullPage from "pages/FullPage";
-import Main from "pages/Main";
+import { lazy } from "react";
+import { Redirect } from "react-router";
 import { RouteConfig } from "react-router-config";
 import Layout from "./Layout";
-import Index from "./pages/Index";
-import Story from "./pages/Story";
 
 let routes: RouteConfig[] = [
   {
     path: "/",
-    component: Main,
+    component: () => <Redirect to="/html" />,
     exact: true,
+  },
+  {
+    path: "/html",
+    exact: true,
+    component: lazy(() => import("pages/Main")),
     render: Layout.OfficialLayout,
   },
   {
-    path: "/out-index",
-    component: Index,
-    render: Layout.DefaultLayout,
-  },
-  {
-    path: "/story",
-    component: Story,
-    render: Layout.DefaultLayout,
-  },
-  {
-    path: "/full-page",
-    component: FullPage,
-    render: Layout.DefaultLayout,
+    path: "/html/detail/:name",
+    component: lazy(() => import("pages/Main/HtmlDetail")),
+    render: Layout.OfficialLayout,
   },
 ];
 
