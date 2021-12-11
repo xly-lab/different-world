@@ -1,6 +1,6 @@
 {
   "name": "different-world",
-  "version": "0.2.4-alpha.1",
+  "version": "0.2.4-alpha.2",
   "private": true,
   "dependencies": {
     "@fullpage/react-fullpage": "^0.1.19",
@@ -43,7 +43,7 @@
   "scripts": {
     "start": "react-scripts start",
     "start:rar": "react-app-rewired start",
-    "build": "react-app-rewired start",
+    "build": "react-app-rewired build",
     "build:rar": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
